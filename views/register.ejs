@@ -1,0 +1,82 @@
+<%- include("./partials/head-register") %>
+<body>
+    <%- include("./partials/header") %>
+    <form action="/cuenta-nueva" method="POST" class="registro">
+        <div class="controlador-registro">
+            <label>Nombre y apellido:</label>
+            <input type="text" name="nombre-apellido" placeholder="Escribe aquí tu nombre y apellido" 
+            class="control" required minlength="10" maxlength="30"/> 
+        </div>
+        <div class="controlador-registro">
+            <label>Nombre de usuari@:</label>
+            <input type="text" name="nombre-usuario" placeholder="Escribe aquí tu nombre de usuario" 
+            class="control" required minlength="6" maxlength="30"/>
+        </div>
+        <div class="controlador-registro">
+            <label>Correo electrónico:</label>
+            <input type="email" name="correo-usuario" placeholder="Escribe aquí tu E-mail" 
+            class="control" required minlength="10"/>
+        </div>
+        <div class="controlador-registro">
+            <label>Selecciona tu fecha de nacimiento</label>
+            <input type="date" name="fecha-nacimiento" value="1999-11-30" class="control" required/>
+        </div>
+        <div class="controlador-registro">
+            <label>Domicilio:</label>
+            <input type="text" name="domicilio" placeholder="Ejemplo: calle, avenida, residencia" 
+            class="control" required minlength="8" maxlength="25"/>
+        </div>
+        <div class="controlador-registro">
+            <label>Perfil de usuario. ¿Desea comprar o vender?</label>
+            <label>
+                <input type="radio" name="compra-venta" value="vendedor" />
+                Vender
+        </label>
+        <label>
+            <input type="radio" name="compra-venta" value="comprador" checked/>
+            Comprar
+        </label>
+        </div>
+        <div class="controlador-registro">
+        <label>Categorias de interes</label>
+        <label>
+            <input type="checkbox" name="categorias-interes" value="electronica" checked/>
+            Electrónica
+        </label>
+        <label>
+            <input type="checkbox" name="categorias-interes" value="moda" />
+            Moda
+        </label>
+        <label>
+            <input type="checkbox" name="categorias-interes" value="hogar" />
+            Hogar
+        </label>
+        <label>
+            <input type="checkbox" name="categorias-interes" value="jugueteria" />
+            Juguetería
+        </label>
+        <label>
+            <input type="checkbox" name="categorias-interes" value="vida-sana" />
+            Vida sana
+        </label>
+        </div>
+        <div class="controlador-registro">
+            <label>Inserta una foto de perifl</label>
+            <input type="file" name="foto-usuario" accept=".jpg, .png" class="control"/>
+        </div>
+        <div class="controlador-registro">
+            <label>Contraseña</label>
+            <input type="password" name="contraseña" placeholder="Contraseña" class="control" 
+            required minlength="8" maxlength="30"/>
+        </div>
+        <div class="controlador-registro">
+            <label>Confirmar contraseña</label>
+            <input type="password" name="contraseña-confirm" placeholder="Repetir contraseña" 
+            class="control" required minlength="8" maxlength="30"/>
+        </div>
+        <button type="submit" class="boton-controlador">Enviar</button>
+        <button type="reset" class="boton-controlador">Borrar</button>
+    </form>
+    <%- include("./partials/footer") %>
+</body>
+</html>

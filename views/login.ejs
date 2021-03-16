@@ -1,0 +1,19 @@
+<%- include("./partials/head-login") %>
+<body>
+    <%- include("./partials/header") %>
+    <form action="/" method="POST" class="ingreso">
+        <div class="controlador-login">
+            <label>Nombre de usuari@:</label>
+            <input type="text" name="nombre-usuario" placeholder="Escribe aquí tu nombre de usuario" 
+            class="control" required minlength="6" maxlength="30"/>
+        </div>
+        <div class="controlador-login">
+            <label>Contraseña:</label>
+            <input type="password" name="contraseña" placeholder="Contraseña" class="control" 
+            required minlength="8" maxlength="30"/>
+        </div>
+        <button type="submit" class="boton-controlador">Enviar</button>
+    </form>
+    <%- include("./partials/footer") %>
+</body>
+</html>
