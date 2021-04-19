@@ -54,6 +54,15 @@ body {
     font-size: 12px;
 }
 
+.text-danger {
+    color: red;
+    margin: 10px;
+    font-size: 13px;
+}
+.is-invalid {
+    border: red solid 0.5px;
+}
+
 .ingreso {
     padding: 20px 15px;
     margin: auto;

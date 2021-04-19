@@ -70,7 +70,7 @@ body {
 .control {
     padding: 10px;
     width: 100%;
-    border: none;
+    border: 1px solid rgb(175, 175, 175);
     border-radius: 5px;
 }
 .control:hover {
@@ -85,6 +85,15 @@ body {
     border-radius: 5px;
     width: 49%;
     margin-left: 3px;
+}
+
+.text-danger {
+    color: red;
+    margin: 10px;
+    font-size: 13px;
+}
+.is-invalid {
+    border: red solid 0.5px;
 }
 
 footer {

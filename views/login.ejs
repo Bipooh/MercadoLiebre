@@ -1,17 +1,29 @@
 <%- include("./partials/head-login") %>
 <body>
     <%- include("./partials/header") %>
-    <form action="/" method="POST" class="ingreso">
+    <form action="/user/login" method="POST" class="ingreso">
         <div class="controlador-login">
             <label>Nombre de usuari@:</label>
-            <input type="text" name="nombre-usuario" placeholder="Escribe aquí tu nombre de usuario" 
-            class="control" required minlength="6" maxlength="30"/>
+            <input type="text" name="usuario" placeholder="Escribe aquí tu nombre de usuario" 
+            class="control <%= locals.errores && errores.nombre ? 'is-invalid' : null %>">
+            <% if(locals.errores && errores.usuario) { %>
+                <div class="text-danger">
+                    <%= errores.usuario.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-login">
             <label>Contraseña:</label>
-            <input type="password" name="contraseña" placeholder="Contraseña" class="control" 
-            required minlength="8" maxlength="30"/>
+            <input type="password" name="contraseña" placeholder="Contraseña" 
+            class="control <%= locals.errores && errores.nombre ? 'is-invalid' : null %>">
+            <% if(locals.errores && errores.contraseña) { %>
+                <div class="text-danger">
+                    <%= errores.contraseña.msg %>
+                </div>
+            <% } %>
         </div>
+        <input type="checkbox" name="recordar">
+        <label for="recordar">Recuerdame</label>
         <button type="submit" class="boton-controlador">Guardar</button>
     </form>
     <%- include("./partials/footer") %>

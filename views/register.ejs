@@ -1,78 +1,113 @@
 <%- include("./partials/head-register") %>
 <body>
     <%- include("./partials/header") %>
-    <form action="/cuenta-nueva" method="POST" class="registro">
+    
+    <form action="/user/register" method="POST" class="registro" enctype="multipart/form-data">
         <div class="controlador-registro">
             <label>Nombre y apellido:</label>
-            <input type="text" name="nombre-apellido" placeholder="Escribe aquí tu nombre y apellido" 
-            class="control" required minlength="10" maxlength="30"/> 
+            <input type="text" name="nombre" 
+            class="control <%= locals.errores && errores.nombre ? 'is-invalid' : null %>" 
+            value="<%= locals.recibido && recibido.nombre ? recibido.nombre : ''%>">
+            <% if(locals.errores && errores.nombre) { %>
+                <div class="text-danger">
+                    <%= errores.nombre.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Nombre de usuari@:</label>
-            <input type="text" name="nombre-usuario" placeholder="Escribe aquí tu nombre de usuario" 
-            class="control" required minlength="6" maxlength="30"/>
+            <input type="text" name="usuario" 
+            class="control <%= locals.errores && errores.usuario ? 'is-invalid' : null %>"
+            value="<%= locals.recibido && recibido.usuario ? recibido.usuario : ''%>">
+            <% if(locals.errores && errores.usuario) { %>
+                <div class="text-danger">
+                    <%= errores.usuario.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Correo electrónico:</label>
-            <input type="email" name="correo-usuario" placeholder="Escribe aquí tu E-mail" 
-            class="control" required minlength="10"/>
+            <input type="text" name="correo" 
+            class="control <%= locals.errores && errores.correo ? 'is-invalid' : null %>"
+            value="<%= locals.recibido && recibido.correo ? recibido.correo : ''%>">
+            <% if(locals.errores && errores.correo) { %>
+                <div class="text-danger">
+                    <%= errores.correo.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Selecciona tu fecha de nacimiento</label>
-            <input type="date" name="fecha-nacimiento" value="1999-11-30" class="control" required/>
+            <input type="date" name="fecha" value="1999-11-30" class="control">
         </div>
         <div class="controlador-registro">
             <label>Domicilio:</label>
-            <input type="text" name="domicilio" placeholder="Ejemplo: calle, avenida, residencia" 
-            class="control" required minlength="8" maxlength="25"/>
+            <input type="text" name="domicilio" 
+            class="control <%= locals.errores && errores.domicilio ? 'is-invalid' : null %>"
+            value="<%= locals.recibido && recibido.domicilio ? recibido.domicilio : ''%>">
+            <% if(locals.errores && errores.domicilio) { %>
+                <div class="text-danger">
+                    <%= errores.domicilio.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Perfil de usuario. ¿Desea comprar o vender?</label>
             <label>
-                <input type="radio" name="compra-venta" value="vendedor" />
+                <input type="radio" name="compraventa" value="vendedor" />
                 Vender
         </label>
         <label>
-            <input type="radio" name="compra-venta" value="comprador" checked/>
+            <input type="radio" name="compraventa" value="comprador" checked/>
             Comprar
         </label>
         </div>
         <div class="controlador-registro">
         <label>Categorias de interes</label>
         <label>
-            <input type="checkbox" name="categorias-interes" value="electronica" checked/>
+            <input type="checkbox" name="categorias" value="electronica" checked/>
             Electrónica
         </label>
         <label>
-            <input type="checkbox" name="categorias-interes" value="moda" />
+            <input type="checkbox" name="categorias" value="moda" />
             Moda
         </label>
         <label>
-            <input type="checkbox" name="categorias-interes" value="hogar" />
+            <input type="checkbox" name="categorias" value="hogar" />
             Hogar
         </label>
         <label>
-            <input type="checkbox" name="categorias-interes" value="jugueteria" />
+            <input type="checkbox" name="categorias" value="jugueteria" />
             Juguetería
         </label>
         <label>
-            <input type="checkbox" name="categorias-interes" value="vida-sana" />
+            <input type="checkbox" name="categorias" value="vida-sana" />
             Vida sana
         </label>
         </div>
         <div class="controlador-registro">
             <label>Inserta una foto de perifl</label>
-            <input type="file" name="foto-usuario" accept=".jpg, .png" class="control"/>
+            <input type="file" name="fotousuario" accept=".jpg, .png" 
+            class="control <%= locals.errores && errores.fotousuario ? 'is-invalid' : null %>">
+            <% if(locals.errores && errores.fotousuario) { %>
+                <div class="text-danger">
+                    <%= errores.fotousuario.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Contraseña</label>
-            <input type="password" name="contraseña" placeholder="Contraseña" class="control" 
-            required minlength="8" maxlength="30"/>
+            <input type="password" name="contraseña" 
+            class="control <%= locals.errores && errores.contraseña ? 'is-invalid' : null %>">
+            <% if(locals.errores && errores.contraseña) { %>
+                <div class="text-danger">
+                    <%= errores.contraseña.msg %>
+                </div>
+            <% } %>
         </div>
         <div class="controlador-registro">
             <label>Confirmar contraseña</label>
-            <input type="password" name="contraseña-confirm" placeholder="Repetir contraseña" 
-            class="control" required minlength="8" maxlength="30"/>
+            <input type="password" name="contraseñaconfirm" class="control">
         </div>
         <button type="submit" class="boton-controlador">Enviar</button>
         <button type="reset" class="boton-controlador">Borrar</button>
